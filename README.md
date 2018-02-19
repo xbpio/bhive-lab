@@ -12,11 +12,12 @@ following softwares if you dont have them on your machine.
   * [Sublime Text](https://www.sublimetext.com)
   
 ## 2. Checkout Git Repo
-Please checkout this git repo on your machine by running. If you're on Windows and have installed Git from step 3 above,
-you may use **Git Bash** for closning this repo.
+Please checkout this git repo on your machine by running:
 ```sh
 git clone https://github.com/xbpio/bhive-lab.git
 ```
+If you're on Windows and have installed Git from step 3 above,
+you may use **Git Bash** for closning this repo.
 
 ## 3. Run Your Instance
 Please `cd` into your `bhive-lab` directory from your `terminal` of choice. If you're on Windows it's recommended to use
@@ -61,6 +62,11 @@ vagrant ssh
 To become `root` after you've successfully logged into the instance you may run:
 ```sh
 sudo su
+```
+
+To use FreeSWITCH's console you'll need to run:
+```sh
+fs_cli
 ```
 
 ## 4. Vagrant Cheat Sheet
