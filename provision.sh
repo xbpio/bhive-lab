@@ -10,7 +10,7 @@ apt-get update
 apt-get upgrade -y
 
 # install base packages
-apt-get install -y git zsh ruby vim
+apt-get install -y git zsh ruby vim ngrep tcpdump
 
 # ruby gem config
 echo -e "---\ngem: --no-ri --no-rdoc" > /etc/gemrc
