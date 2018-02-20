@@ -1,0 +1,17 @@
+<include>
+  <gateway name="bhive">
+    <!-- Your SIP Account Username -->
+    <param name="username" value=""/>
+    <!-- Your SIP Account Domain -->
+    <param name="realm" value=""/>
+    <!-- Your SIP Account Domain -->
+    <param name="from-domain" value=""/>
+    <!-- Your SIP Account password -->
+    <param name="password" value=""/>
+    <param name="outbound-proxy" value="sip.xbp.io"/>
+    <param name="register-proxy" value="sip.xbp.io"/>
+    <param name="register" value="true"/>
+    <param name="retry-seconds" value="5"/>
+    <param name="extension-in-contact" value="true"/>
+  </gateway>
+</include>

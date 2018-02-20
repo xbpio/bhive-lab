@@ -1,0 +1,51 @@
+<include>
+  <extension name="answer and play back">
+    <condition field="destination_number" expression="^(1)$">
+      <action application="set" data="account_id=1"/>
+      <action application="set" data="playback_delimiter=,"/>
+      <action application="info"/>
+      <action application="answer"/>
+      <action application="playback" data="/tmp/monkeys.wav,/tmp/monkeys.wav"/>
+    </condition>
+  </extension>
+
+  <extension name="play_and_get_digits example">
+    <condition field="destination_number" expression="^(2)$">
+      <action application="answer"/>
+      <action application="play_and_get_digits" data="2 5 3 7000 # conference/conf-pin.wav ivr/ivr-pin_or_extension_is-invalid.wav foobar ^\d+$"/>
+      <action application="log" data="CRIT ${foobar}"/>
+    </condition>
+  </extension>
+
+  <extension name="record name">
+    <condition field="destination_number" expression="^(3)$">
+      <action application="answer"/>
+      <action application="sleep" data="500"/>
+
+      <action application="playback" data="voicemail/vm-record_name2.wav"/>
+      <action application="set" data="playback_terminators=#"/>
+      <action application="set" data="record_sample_rate=8000"/>
+      <action application="record" data="/tmp/${uuid}.mp3 20 200"/>
+
+      <action application="sleep" data="2000"/>
+
+      <action application="playback" data="/tmp/${uuid}.mp3"/>
+
+      <action application="info"/>
+    </condition>
+  </extension>
+
+  <extension name="US 10 digit dialing">
+    <condition field="destination_number" expression="^(\d{10})$">
+      <action application="record_session" data="/tmp/from-beginning.mp3"/>
+      <action application="set" data="ringback=/tmp/monkeys.wav"/>
+      <action application="bridge" data="{ignore_early_media=true}[user_id=1]sofia/gateway/bhive/$1,[user_id=2]sofia/gateway/bhive/3107177343"/>
+    </condition>
+  </extension>
+
+  <extension name="answer from cloud">
+    <condition field="destination_number" expression="b">
+      <action application="bridge" data="user/1000"/>
+    </condition>
+  </extension>
+</include>
