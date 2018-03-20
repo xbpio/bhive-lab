@@ -22,7 +22,7 @@
     <!--<domain name="$${domain}" parse="true"/>-->
     <!-- indicator to parse the directory for domains with parse="true" to get gateways and alias every domain to this profile -->
     <!--<domain name="all" alias="true" parse="true"/>-->
-    <domain name="all" alias="true" parse="false"/>
+    <domain name="all" alias="false" parse="false"/>
   </domains>
 
   <settings>
@@ -310,7 +310,7 @@
 
     <!-- for sip over secure websocket support -->
     <!-- You need wss.pem in $${certs_dir} for wss or one will be created for you -->
-    <param name="wss-binding" value=":7443"/>    
+    <param name="wss-binding" value=":7443"/>
 
     <!--<param name="delete-subs-on-register" value="false"/>-->
 
